@@ -21,7 +21,7 @@ class NthuCatcher(SinglePageCatcher):
         for div in page.xpath(self.XPATH["coursesDiv"]):
             info["courses"].append(
                 {
-                    "title": firstDefault( div.xpath(".//span[@class='courseTitle']/text()") ).strip(),
+                    "title": firstDefault( div.xpath(".//span[@class='courseTitle']/text()"), "None" ).strip(),
                     "cid": int(
                         firstDefault( div.xpath("./@onclick"), "" )
                         .replace("""window.open('index.php?page=course&cid=""", "")
@@ -29,7 +29,7 @@ class NthuCatcher(SinglePageCatcher):
                     "category": firstDefault( div.xpath(".//span[@class='courseCategory']/text()"), "None" ).strip(),
                     "teacher": firstDefault( div.xpath(".//span[@class='courseTeacher']/text()"), "None" ).strip(),
                     "imgsrc": urljoin(div.base_url, firstDefault( div.xpath(".//img/@src"), "" )),
-                    "description": firstDefault( div.xpath(".//div[@class='courseDescription']//span/text()"), []).strip(),
+                    "description": firstDefault( div.xpath(".//div[@class='courseDescription']//span/text()"), "None").strip(),
                 })
 
         return info
