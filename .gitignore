@@ -19,6 +19,7 @@ tags
 # Persistent undo
 [._]*.un~
 
+
 # MACOS
 # General
 .DS_Store
@@ -46,6 +47,7 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
 
 # PYTHON
 # Byte-compiled / optimized / DLL files
@@ -201,3 +203,17 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+
+
+# VSCODE
+.vscode/*
+
+# Local History for Visual Studio Code
+.history/
+
+# Built Visual Studio Code Extensions
+*.vsix
+
+
+# Ignore output file
+*Courses.json
